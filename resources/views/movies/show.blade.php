@@ -5,13 +5,15 @@
 @section('content')
 <div class="row">
     <div class="col-md-4">
-        @if($movie->image_path)
-            <img src="{{ asset('storage/' . $movie->image_path) }}" alt="{{ $movie->name }}" class="img-fluid rounded">
-        @else
-            <div class="bg-secondary text-white rounded d-flex align-items-center justify-content-center" style="height: 300px;">
-                <span>Sin imagen</span>
+        <div class="card">
+            <div class="card-img-container">
+                @if($movie->image_path)
+                    <img src="{{ asset('storage/' . $movie->image_path) }}" class="card-img-top" alt="{{ $movie->name }}">
+                @else
+                    <img src="https://via.placeholder.com/300x450?text=No+Image" class="card-img-top" alt="No image available">
+                @endif
             </div>
-        @endif
+        </div>
     </div>
     <div class="col-md-8">
         <h1>{{ $movie->name }}</h1>

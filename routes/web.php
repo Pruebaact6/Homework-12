@@ -6,7 +6,7 @@ use App\Http\Controllers\MovieController;
 use App\Http\Controllers\CharacterController;
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('movies.index');
 });
 
 Route::middleware('auth')->group(function () {
@@ -18,3 +18,6 @@ Route::middleware('auth')->group(function () {
 Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [AuthController::class, 'login']);
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
+Route::get('/register', [AuthController::class, 'showRegisterForm'])->name('register');
+Route::post('/register', [AuthController::class, 'register']);
